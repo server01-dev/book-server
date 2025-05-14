@@ -21,7 +21,7 @@ app.use('/api', bookRoutes);
 
 cron.schedule('*/10 * * * *', () => {
 
-  axios.get(`http://localhost:${PORT}`)
+  axios.get(`https://book-server-cbu3.onrender.com/`)
     .then((response) => {
       console.log('Server responded:', response.data);
     })
