@@ -23,7 +23,7 @@ cron.schedule('*/10 * * * *', () => {
 
   axios.get(`https://book-server-cbu3.onrender.com/`)
     .then((response) => {
-      console.log('Server responded:', response.data);
+      console.log('Server responded:', response.data.message);
     })
     .catch((error) => {
       console.error('Error calling the server:', error);
