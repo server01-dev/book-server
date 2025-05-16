@@ -51,8 +51,12 @@ router.get('/search/:name', async (req, res) => {
     const books = await Book.find({
       name: { $regex: name, $options: 'i' } 
     });
-
-    res.json(books);
+    if(books){
+      res.json(books);
+    }else{
+      res.json({ message: 'No Book Found' })
+    }
+    
   } catch (err) {
     res.status(500).json({ message: 'Server error', error: err });
   }
