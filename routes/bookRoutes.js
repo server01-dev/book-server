@@ -51,10 +51,10 @@ router.get('/search/:name', async (req, res) => {
     const books = await Book.find({
       name: { $regex: name, $options: 'i' } 
     });
-    if(books){
+    if (books.length == 0) {
+      res.json({ message: "No Book Found" });
+    } else {
       res.json(books);
-    }else{
-      res.json({ message: 'No Book Found' })
     }
     
   } catch (err) {
